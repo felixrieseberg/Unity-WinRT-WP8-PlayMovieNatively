@@ -16,42 +16,6 @@ using System.Windows.Threading;
 
 namespace WinControlsWP8
 {
-    public class NativeMessageBox
-    {
-        public delegate void ActionDelegate(object UICommand);
-
-        public class Command
-        {
-            public ActionDelegate action;
-
-            public Command(ActionDelegate action)
-            {
-                this.action = action;
-            }
-        }
-
-        public void ShowMessageBox(string message, string title, Command command1, Command command2)
-        {
-#if WINDOWS_PHONE
-            Deployment.Current.Dispatcher.BeginInvoke(
-                (Action)(() =>
-                {
-                    if (command2 != null) {
-                        MessageBoxResult result = MessageBox.Show(message, title, MessageBoxButton.OKCancel);
-                        if (result == MessageBoxResult.OK)
-                        {
-                            
-                        }
-                        else if (result == MessageBoxResult.Cancel)
-                        {
-
-                        }
-                    }
-                }));
-#endif
-        }
-    }
-
     public class VideoPlayback
     {
         public static void PlayVideoFullscreen(string videoUrl)
