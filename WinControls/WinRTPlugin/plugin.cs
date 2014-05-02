@@ -67,6 +67,14 @@ namespace WinControls
 
     public class VideoPlayback {
 
+        public static void PlayVideoFullscreen(string videoUrl)
+        {
+            PlayVideoFullscreen(videoUrl, true, false);
+        }
+        public static void PlayVideoFullscreen(string videoUrl, bool controlsEnabled)
+        {
+            PlayVideoFullscreen(videoUrl, controlsEnabled, false);
+        }
         public static void PlayVideoFullscreen(string videoUrl, bool controlsEnabled, bool tapSkipsVideo)
         {
 #if NETFX_CORE

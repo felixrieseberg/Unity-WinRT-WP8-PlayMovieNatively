@@ -1,0 +1,5 @@
+C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControlsFake\bin\Debug\WinControlsWP8.dll
+C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControlsFake\bin\Debug\WinControlsWP8.pdb
+C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControlsFake\obj\Debug\PhoneControlsFake.csprojResolveAssemblyReference.cache
+C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControlsFake\obj\Debug\WinControlsWP8.dll
+C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControlsFake\obj\Debug\WinControlsWP8.pdb

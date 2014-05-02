@@ -1,0 +1,4 @@
+C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControls\Bin\Debug\WinControlsWP8.dll
+C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControls\Bin\Debug\WinControlsWP8.pdb
+C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControls\obj\Debug\WinControlsWP8.dll
+C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControls\obj\Debug\WinControlsWP8.pdb
