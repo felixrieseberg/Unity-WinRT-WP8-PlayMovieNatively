@@ -1,6 +1,4 @@
 ##Play movies natively on WinRT and WP8 from Unity
-===========================
-
 This plugin allows the native playback of movie files on both Windows Phone 8 as well as WinRT.
 
 ##Usage
