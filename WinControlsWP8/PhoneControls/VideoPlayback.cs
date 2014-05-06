@@ -81,22 +81,13 @@ namespace WinControlsWP8
         /// Returns true if the playback has finished.
         /// </summary>
         public bool playbackFinished
-        { 
-            get {
-#if WINDOWS_PHONE
-                if (_mediaElement.NaturalDuration.TimeSpan.Seconds == _mediaElement.Position.Seconds)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-#else
-                return false;
-#endif
-            }
-        }
+        { get; set; }
+
+        /// <summary>
+        /// Returns true if the media is playing. This property isn't guaranteed and will be incorrect if the video is started/stopped from outside the plugin.
+        /// </summary>
+        public bool isPlaying
+        { get; set; }
         
         /// <summary>
         /// Returns the progress of playback as a percentage.
@@ -107,6 +98,22 @@ namespace WinControlsWP8
 #if WINDOWS_PHONE
                 int percentage = (int)Math.Round((float)_mediaElement.Position.Seconds / (float)_mediaElement.NaturalDuration.TimeSpan.Seconds * 100);
                 return percentage;
+#else
+                return 0;
+#endif
+            }
+        }
+
+        /// <summary>
+        /// Returns the progress of playback from 0 to 1.
+        /// </summary>
+        public double progress
+        {
+            get
+            {
+#if WINDOWS_PHONE
+                double progress = _mediaElement.Position.Seconds / _mediaElement.NaturalDuration.TimeSpan.Seconds;
+                return progress;
 #else
                 return 0;
 #endif
@@ -177,12 +184,14 @@ namespace WinControlsWP8
                 _mediaElement.Source = new Uri(videoUrl, UriKind.RelativeOrAbsolute);
                 if (tapSkipsVideo)
                 {
+                    _mediaElement.MediaEnded += delegate { playbackFinished = true; };
                     _mediaElement.Tap += delegate { _drawingSurfaceBackgroundElement.Children.Remove(_mediaElement); };
                 }
                 if (autoPlay)
                 {
                     _drawingSurfaceBackgroundElement.Children.Add(_mediaElement);
                     _mediaElement.Play();
+                    isPlaying = true;
                 }
             }));
 #endif
@@ -200,6 +209,7 @@ namespace WinControlsWP8
                 {
                     _drawingSurfaceBackgroundElement.Children.Add(_mediaElement);
                     _mediaElement.Play();
+                    isPlaying = true;
                 }));
             }
 #endif
@@ -217,6 +227,7 @@ namespace WinControlsWP8
                 (Action)(() =>
                 {
                     _mediaElement.Stop();
+                    isPlaying = false;
                 }));
             }
 #endif
@@ -234,6 +245,7 @@ namespace WinControlsWP8
                 (Action)(() =>
                 {
                     _mediaElement.Pause();
+                    isPlaying = false;
                 }));
             }
 #endif
@@ -256,6 +268,8 @@ namespace WinControlsWP8
             }
 #endif
         }
+
+        
 
     }
 }
