@@ -42,12 +42,22 @@ double myNativeVideo.mediaDuration    // Video duration, in seconds (whole and f
 
 #### WinRT
 ```
-var myNativeVideo = new WinControlsWP8.VideoElement(string videoUrl, bool controlsEnabled, bool tapSkipsVideo, bool autoPlay); 
+var myNativeVideo = new WinControls.VideoElement(string videoUrl, bool controlsEnabled, bool tapSkipsVideo, bool autoPlay); 
 ```
 - videoUrl: The URL to the video as a string, including official qualifier (for instance ms-appx:/// for an asset inside the app package or http:// for a web resource).
 - controlsEnabled (default: _true_): _true_ enables the native video controls (scrubber, play/pause, etc.), _false_ disables them. 
 - tapSkipsVideo (default: _false_): _true_ automatically removes the video element if the user taps/clicks it, _false_ doesn't. If controlsEnabled is set to _true_ and tapSkipsVideo is set to _false_, a tap/click will pause the video.
 - autoPlay (default _false_): _true_ automatically starts the video immediatly after creation.
+
+```
+myNativeVideo.Pause();                // Pauses the video
+myNativeVideo.Play();                 // Plays the video
+myNativeVideo.Stop();                 // Stops the video
+
+bool myNativeVideo.isPlaying          // Is the video playing?
+bool myNativeVideo.playbackFinished   // Is the playback finished?
+double myNativeVideo.mediaDuration    // Video duration, in seconds (whole and fractions - available after play)
+```
 
 ## Installation
 Copy the contents of the folder _CopyContentsToUnityProjectPlugins_ into the _Plugins_ folder in your Unity project. If it doesn't exist yet, create it.
