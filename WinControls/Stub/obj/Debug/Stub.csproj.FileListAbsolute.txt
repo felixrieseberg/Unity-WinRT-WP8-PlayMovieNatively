@@ -8,3 +8,8 @@ C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControls\Drop\WinCont
 C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControls\Stub\obj\Debug\Stub.csprojResolveAssemblyReference.cache
 C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControls\Stub\obj\Debug\WinControls.dll
 C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControls\Stub\obj\Debug\WinControls.pdb
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\Drop\WinControls.dll
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\Drop\WinControls.pdb
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\Stub\obj\Debug\Stub.csprojResolveAssemblyReference.cache
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\Stub\obj\Debug\WinControls.dll
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\Stub\obj\Debug\WinControls.pdb

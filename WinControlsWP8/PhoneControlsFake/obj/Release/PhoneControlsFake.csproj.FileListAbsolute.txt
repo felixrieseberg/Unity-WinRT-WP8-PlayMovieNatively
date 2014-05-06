@@ -9,3 +9,8 @@ C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControlsWP8\Build\Win
 C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControlsWP8\PhoneControlsFake\obj\Release\PhoneControlsFake.csprojResolveAssemblyReference.cache
 C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControlsWP8\PhoneControlsFake\obj\Release\WinControlsWP8.dll
 C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControlsWP8\PhoneControlsFake\obj\Release\WinControlsWP8.pdb
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControlsWP8\Build\WinControlsWP8.dll
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControlsWP8\Build\WinControlsWP8.pdb
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControlsWP8\PhoneControlsFake\obj\Release\PhoneControlsFake.csprojResolveAssemblyReference.cache
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControlsWP8\PhoneControlsFake\obj\Release\WinControlsWP8.dll
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControlsWP8\PhoneControlsFake\obj\Release\WinControlsWP8.pdb
