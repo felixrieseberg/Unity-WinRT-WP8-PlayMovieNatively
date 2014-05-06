@@ -2,36 +2,51 @@
 using System.Collections;
 
 public class PlayMovie : MonoBehaviour {
-	
+
+	private WinControlsWP8.VideoElement myNativeVideo;
+	private bool videoStarted;
+
 	// Use this for initialization
 	void Start () {
-
+		// Creating video element
+		#if UNITY_WP8
+		myNativeVideo = new WinControlsWP8.VideoElement("http://video-js.zencoder.com/oceans-clip.mp4", true, false);
+		#endif
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetButtonDown("Fire2")) {
-			Play();
 
-		}
-	}
 
 	void OnGUI() {
-		if (GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 100, 200, 200), "Play Movie")) {
-			Play();
+		if (GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 + 210, 200, 200), "Play Simple")) {
+			PlaySimple();
+		}
+		if (GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 210, 200, 200), "Play")) {
+			PlaySimple();
 		}
 	}
 
-	void Play() {
+	void PlaySimple() {
 		Debug.Log("Trying to play movie");
 
-		// The ifdefs here are optional, since both methods fail silently.
+		// NETFX_CORE is WINRT
 		#if NETFX_CORE
 		WinControls.VideoPlayback.PlayVideoFullscreen("ms-appx:///Assets/videoplayback.mp4", true, true);
 		#endif
 		#if UNITY_WP8
 		WinControlsWP8.VideoPlayback.PlayVideoFullscreen("http://video-js.zencoder.com/oceans-clip.mp4", true);
 		#endif
+	}
+
+	void Play() {
+		Debug.Log("Trying to play movie");
+
+		// The ifdefs here are optional, since both methods fail silently.
+		#if UNITY_WP8
+		myNativeVideo.Play();
+		#endif
+	}
+
+	void Update() {
+		Debug.Log("Elapsed time: " + myNativeVideo.elapsedTime.ToString());
 	}
 	
 }

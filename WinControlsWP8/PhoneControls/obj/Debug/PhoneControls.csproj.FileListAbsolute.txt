@@ -2,3 +2,7 @@ C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneContr
 C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControls\Bin\Debug\WinControlsWP8.pdb
 C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControls\obj\Debug\WinControlsWP8.dll
 C:\Users\feriese\documents\visual studio 2013\Projects\WinControlsWP8\PhoneControls\obj\Debug\WinControlsWP8.pdb
+C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControlsWP8\PhoneControls\Bin\Debug\WinControlsWP8.dll
+C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControlsWP8\PhoneControls\Bin\Debug\WinControlsWP8.pdb
+C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControlsWP8\PhoneControls\obj\Debug\WinControlsWP8.dll
+C:\Users\feriese\Documents\GitHub\WinRT-Unity-PlayMovie\WinControlsWP8\PhoneControls\obj\Debug\WinControlsWP8.pdb
