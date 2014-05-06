@@ -1,3 +1,0 @@
-Assembly-CSharp.dll
-WinControls.dll
-WinControlsWP8.dll

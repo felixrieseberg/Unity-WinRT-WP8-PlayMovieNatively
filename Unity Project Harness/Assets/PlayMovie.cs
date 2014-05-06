@@ -6,11 +6,13 @@ public class PlayMovie : MonoBehaviour {
 	private WinControlsWP8.VideoElement myNativeVideo;
 	private bool videoStarted;
 
+
 	// Use this for initialization
 	void Start () {
 		// Creating video element
 		#if UNITY_WP8
 		myNativeVideo = new WinControlsWP8.VideoElement("http://video-js.zencoder.com/oceans-clip.mp4", true, false);
+        InvokeRepeating("LogMovieInfo", 2, 2);
 		#endif
 	}
 
@@ -20,8 +22,9 @@ public class PlayMovie : MonoBehaviour {
 			PlaySimple();
 		}
 		if (GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 210, 200, 200), "Play")) {
-			PlaySimple();
+			Play();
 		}
+       GUI.Label(new Rect(Screen.width / 2 - 200, 0, 400, 200), myNativeVideo.mediaDuration.ToString() + " P: " + myNativeVideo.isPlaying.ToString() + " F: " + myNativeVideo.playbackFinished.ToString());
 	}
 
 	void PlaySimple() {
@@ -45,8 +48,8 @@ public class PlayMovie : MonoBehaviour {
 		#endif
 	}
 
-	void Update() {
-		Debug.Log("Elapsed time: " + myNativeVideo.elapsedTime.ToString());
+	void LogMovieInfo() {
+		Debug.Log("Duration: " + myNativeVideo.mediaDuration.ToString() + " Playing: " + myNativeVideo.isPlaying.ToString() + " Done: " + myNativeVideo.playbackFinished.ToString());
 	}
-	
+
 }

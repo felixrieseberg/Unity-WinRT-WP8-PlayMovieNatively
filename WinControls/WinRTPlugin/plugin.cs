@@ -105,4 +105,97 @@ namespace WinControls
 
     }
 
+    public class VideoElement
+    {
+
+        /// <summary>
+        /// Returns true if the playback has finished.
+        /// </summary>
+        public bool playbackFinished
+        { get; set; }
+
+        /// <summary>
+        /// Returns true if the media is playing. This property isn't guaranteed and will be incorrect if the video is started/stopped from outside the plugin.
+        /// </summary>
+        public bool isPlaying
+        { get; set; }
+
+        /// <summary>
+        /// Get's the media's duration in seconds (whole and fractions)
+        /// </summary>
+        public double mediaDuration
+        { get; set; }
+
+#if NETFX_CORE
+        private MediaElement _mediaElement
+        { get; set; }
+        private SwapChainBackgroundPanel _backgroundPanel
+        { get; set; }
+#endif
+
+        public VideoElement(string videoUrl, bool controlsEnabled, bool tapSkipsVideo, bool autoPlay)
+        {
+#if NETFX_CORE
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+
+                Page page = (Page)Window.Current.Content;
+                _backgroundPanel = (SwapChainBackgroundPanel)page.FindName("DXSwapChainBackgroundPanel");
+
+                _mediaElement = new MediaElement();
+
+                _mediaElement.IsFullWindow = true;
+                _mediaElement.Source = new Uri(videoUrl);
+                _mediaElement.AreTransportControlsEnabled = controlsEnabled;
+                _mediaElement.MediaEnded += delegate { _backgroundPanel.Children.Remove(_mediaElement); playbackFinished = true; isPlaying = false; };
+                _mediaElement.MediaOpened += delegate { isPlaying = true; mediaDuration = _mediaElement.NaturalDuration.TimeSpan.TotalSeconds; };
+
+                if (tapSkipsVideo)
+                {
+                    _mediaElement.Tapped += delegate { _backgroundPanel.Children.Remove(_mediaElement); playbackFinished = true; isPlaying = false; };
+                }
+
+                if (autoPlay)
+                {
+                    this.Play();
+                }
+            });
+#endif
+        }
+
+        public void Play()
+        {
+#if NETFX_CORE
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                _backgroundPanel.Children.Add(_mediaElement);
+                _mediaElement.Play();
+            });
+            isPlaying = true;
+#endif
+        }
+
+        public void Stop()
+        {
+#if NETFX_CORE
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                _mediaElement.Stop();
+            });
+            isPlaying = false;
+#endif
+        }
+
+        public void Pause()
+        {
+#if NETFX_CORE
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                _mediaElement.Pause();
+            });
+            isPlaying = false;
+#endif
+        }
+    }
+
 }
