@@ -88,65 +88,12 @@ namespace WinControlsWP8
         /// </summary>
         public bool isPlaying
         { get; set; }
-        
-        /// <summary>
-        /// Returns the progress of playback as a percentage.
-        /// </summary>
-        public int percentageDone
-        {
-            get {
-#if WINDOWS_PHONE
-                int percentage = (int)Math.Round((float)_mediaElement.Position.Seconds / (float)_mediaElement.NaturalDuration.TimeSpan.Seconds * 100);
-                return percentage;
-#else
-                return 0;
-#endif
-            }
-        }
 
         /// <summary>
-        /// Returns the progress of playback from 0 to 1.
+        /// Get's the media's duration in seconds (whole and fractions)
         /// </summary>
-        public double progress
-        {
-            get
-            {
-#if WINDOWS_PHONE
-                double progress = _mediaElement.Position.Seconds / _mediaElement.NaturalDuration.TimeSpan.Seconds;
-                return progress;
-#else
-                return 0;
-#endif
-            }
-        }
-
-        /// <summary>
-        /// Returns the elapsed playback time in milliseconds.
-        /// </summary>
-        public double elapsedTime
-        { 
-            get { 
-#if WINDOWS_PHONE
-                return (double)_mediaElement.Position.Milliseconds;
-#else  
-                return 0;
-#endif
-            } 
-        }
-
-        /// <summary>
-        /// Returns the elapsed playback time in seconds.
-        /// </summary>
-        public double elapsedTimeInSeconds
-        {
-            get {
-#if WINDOWS_PHONE
-                return (double)_mediaElement.Position.Milliseconds * 1000;
-#else  
-                return 0;
-#endif            
-            }
-        }
+        public double mediaDuration
+        { get; set; }
         
 #if WINDOWS_PHONE
         /// <summary>
@@ -182,18 +129,21 @@ namespace WinControlsWP8
                 _mediaElement.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
                 _mediaElement.Stretch = System.Windows.Media.Stretch.UniformToFill;
                 _mediaElement.Source = new Uri(videoUrl, UriKind.RelativeOrAbsolute);
+
+                _mediaElement.MediaEnded += _mediaElement_MediaEnded;
+                _mediaElement.MediaOpened +=_mediaElement_MediaOpened;
+
                 if (tapSkipsVideo)
                 {
-                    _mediaElement.MediaEnded += delegate { playbackFinished = true; };
-                    _mediaElement.Tap += delegate { _drawingSurfaceBackgroundElement.Children.Remove(_mediaElement); };
-                }
-                if (autoPlay)
-                {
-                    _drawingSurfaceBackgroundElement.Children.Add(_mediaElement);
-                    _mediaElement.Play();
-                    isPlaying = true;
+                    _mediaElement.Tap += _mediaElement_Tap;
+                    _mediaElement.Tap += delegate { _drawingSurfaceBackgroundElement.Children.Remove(_mediaElement);  };
                 }
             }));
+
+            if (autoPlay)
+            {
+                this.Play();
+            }
 #endif
         }
 
@@ -204,12 +154,12 @@ namespace WinControlsWP8
 #if WINDOWS_PHONE
             if (_mediaElement != null && _drawingSurfaceBackgroundElement != null)
             {
+                isPlaying = true;
                 Deployment.Current.Dispatcher.BeginInvoke(
                 (Action)(() =>
                 {
                     _drawingSurfaceBackgroundElement.Children.Add(_mediaElement);
                     _mediaElement.Play();
-                    isPlaying = true;
                 }));
             }
 #endif
@@ -223,11 +173,11 @@ namespace WinControlsWP8
 #if WINDOWS_PHONE
             if (_mediaElement != null && _drawingSurfaceBackgroundElement != null)
             {
+                isPlaying = false;
                 Deployment.Current.Dispatcher.BeginInvoke(
                 (Action)(() =>
                 {
-                    _mediaElement.Stop();
-                    isPlaying = false;
+                    _mediaElement.Stop();                   
                 }));
             }
 #endif
@@ -241,35 +191,33 @@ namespace WinControlsWP8
 #if WINDOWS_PHONE
             if (_mediaElement != null && _drawingSurfaceBackgroundElement != null)
             {
+                isPlaying = false;
                 Deployment.Current.Dispatcher.BeginInvoke(
                 (Action)(() =>
                 {
                     _mediaElement.Pause();
-                    isPlaying = false;
                 }));
             }
 #endif
         }
 
-        /// <summary>
-        /// Sets the video's position to the given position.
-        /// </summary>
-        /// <param name="miliseconds">Position in milliseconds</param>
-        public void ResetPosition(int milliseconds)
-        {
 #if WINDOWS_PHONE
-            if (_mediaElement != null && _drawingSurfaceBackgroundElement != null)
-            {
-                Deployment.Current.Dispatcher.BeginInvoke(
-                (Action)(() =>
-                {
-                    _mediaElement.Position = new TimeSpan(0,0,0,0,milliseconds);
-                }));
-            }
-#endif
+        void _mediaElement_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            isPlaying = true;
+            mediaDuration = _mediaElement.NaturalDuration.TimeSpan.TotalSeconds;
         }
 
-        
+        void _mediaElement_Tap(object sender, GestureEventArgs e)
+        {
+            playbackFinished = true;
+        }
+
+        void _mediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            playbackFinished = true;
+        }
+#endif
 
     }
 }
