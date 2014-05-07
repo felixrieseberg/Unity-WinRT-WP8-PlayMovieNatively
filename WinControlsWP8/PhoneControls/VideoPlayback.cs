@@ -177,7 +177,8 @@ namespace WinControlsWP8
                 Deployment.Current.Dispatcher.BeginInvoke(
                 (Action)(() =>
                 {
-                    _mediaElement.Stop();                   
+                    _mediaElement.Stop();
+                    _drawingSurfaceBackgroundElement.Children.Remove(_mediaElement);
                 }));
             }
 #endif
@@ -215,6 +216,11 @@ namespace WinControlsWP8
 
         void _mediaElement_MediaEnded(object sender, RoutedEventArgs e)
         {
+            Deployment.Current.Dispatcher.BeginInvoke(
+            (Action)(() =>
+            {
+                _drawingSurfaceBackgroundElement.Children.Remove(_mediaElement);
+            }));
             playbackFinished = true;
         }
 #endif

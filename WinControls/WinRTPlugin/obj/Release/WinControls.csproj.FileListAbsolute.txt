@@ -1,0 +1,16 @@
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\bin\Release\WinControls.dll
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\bin\Release\WinControls.pdb
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\bin\Release\WinControls.pri
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\WinControls.dll
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\WinControls.pdb
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\priconfig.xml
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\priconfig.xml.intermediate
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\layout.resfiles
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\layout.resfiles.intermediate
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\resources.resfiles
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\resources.resfiles.intermediate
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\pri.resfiles
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\pri.resfiles.intermediate
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\qualifiers.txt
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\qualifiers.txt.intermediate
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\WinRTPlugin\obj\Release\MultipleQualifiersPerDimensionFound.txt
