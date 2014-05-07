@@ -3,7 +3,11 @@ using System.Collections;
 
 public class PlayMovie : MonoBehaviour {
 
+    #if UNITY_WP8
 	private WinControlsWP8.VideoElement myNativeVideo;
+    #elif UNITY_METRO
+    private WinControls.VideoElement myNativeVideo;
+    #endif
 	private bool videoStarted;
 
 
@@ -13,7 +17,9 @@ public class PlayMovie : MonoBehaviour {
 		#if UNITY_WP8
 		myNativeVideo = new WinControlsWP8.VideoElement("http://video-js.zencoder.com/oceans-clip.mp4", true, false);
         InvokeRepeating("LogMovieInfo", 2, 2);
-		#endif
+		#elif UNITY_METRO
+        myNativeVideo = new WinControls.VideoElement("http://video-js.zencoder.com/oceans-clip.mp4", false, true, false);
+        #endif
 	}
 
 
@@ -31,7 +37,7 @@ public class PlayMovie : MonoBehaviour {
 		Debug.Log("Trying to play movie");
 
 		// NETFX_CORE is WINRT
-		#if NETFX_CORE
+		#if UNITY_METRO
 		WinControls.VideoPlayback.PlayVideoFullscreen("ms-appx:///Assets/videoplayback.mp4", true, true);
 		#endif
 		#if UNITY_WP8
