@@ -1,0 +1,5 @@
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\Stub\bin\Release\WinControls.dll
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\Stub\bin\Release\WinControls.pdb
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\Stub\obj\Release\Stub.csprojResolveAssemblyReference.cache
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\Stub\obj\Release\WinControls.dll
+C:\Users\Jack\Documents\Unity-WinRT-WP8-PlayMovieNatively\WinControls\Stub\obj\Release\WinControls.pdb
